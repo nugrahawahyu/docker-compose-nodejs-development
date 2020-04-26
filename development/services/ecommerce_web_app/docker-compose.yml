@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  web:
+    container_name: "${SERVICE_NAME}.${ENV}.${ORGANIZATION}-${SERVER}.internal"
+    build:
+      context: "${SERVICE_DIR}"
+      dockerfile: Dockerfile.develop
+    env_file:
+      - .env
+    restart: unless-stopped
+    ports: 
+      - "${PORT_HOST}:${PORT_CONTAINER}"
+    volumes:
+      - "${SERVICE_DIR}:/app/"
+      - /app/node_modules
+    networks:
+      - development-internal-network
+
+networks:
+  development-internal-network:
+    external: true
+    
