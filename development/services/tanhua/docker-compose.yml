@@ -5,7 +5,7 @@ services:
     container_name: "${SERVICE_NAME}.${ENV}.${ORGANIZATION}-${SERVER}.internal"
     build:
       context: "${SERVICE_DIR}"
-      dockerfile: Dockerfile.develop
+      dockerfile: $PWD/Dockerfile
     env_file:
       - .env
     restart: unless-stopped

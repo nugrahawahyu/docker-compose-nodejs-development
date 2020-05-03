@@ -2,5 +2,5 @@
 */*/.env
 */*/.disable
 
-services_enabled/*
-!services_enabled/.gitkeep
+*/services_enabled/*
+!*/services_enabled/.gitkeep

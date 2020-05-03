@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  self-signed-cert:
+    container_name: "self-signed-cert.${ENV}.${ORGANIZATION}-${SERVER}.internal"
+    build: .
+    env_file:
+      - .env
+    restart: "no"
+    volumes:
+      - ./certs:/self-signed-certs-latest
+      - development-volume:/self-signed-certs
+
+volumes: 
+  development-volume:
+    name: 'development-volume'
+    external: true

@@ -7,7 +7,7 @@ services:
     env_file:
       - .env
     ports:
-      - 9090:9090
+      - "${PROMETHEUS_PORT}:9090"
     command:
       - --config.file=/etc/prometheus/prometheus.yml
     volumes:
@@ -21,7 +21,7 @@ services:
     env_file:
       - .env
     ports:
-      - 8080:8080
+      - "${CADVISOR_PORT}:8080"
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:rw
@@ -43,3 +43,8 @@ networks:
     driver: overlay
     attachable: true
     name: 'development-internal-network'
+
+volumes: 
+  development-volume:
+    name: 'development-volume'
+    external: true

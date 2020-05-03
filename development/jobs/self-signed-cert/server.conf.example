@@ -1,0 +1,30 @@
+[dn]
+CN=iredium-dev.host
+
+[ req ]
+default_bits            = 1024
+default_md              = sha1
+default_keyfile         = privkey.pem
+distinguished_name      = dn
+x509_extensions = v3_ca # The extentions to add to the self signed cert
+x509_extensions = usr_cert
+
+[ usr_cert ]
+basicConstraints=CA:FALSE
+nsCertType                      = client, server, email
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth, clientAuth, codeSigning, emailProtection
+nsComment                       = "OpenSSL Generated Certificate"
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid,issuer
+subjectAltName=@alt_names
+extendedKeyUsage = serverAuth, clientAuth, codeSigning, emailProtection
+basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+
+[ alt_names ]
+DNS.1 = www.iredium-dev.host
+DNS.2 = m.iredium-dev.host
+DNS.3 = api.iredium-dev.host
+DNS.4 = accounts.iredium-dev.host
+DNS.5 = fragment.iredium-dev.host
