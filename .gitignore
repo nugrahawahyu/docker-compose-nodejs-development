@@ -1,9 +1,6 @@
-.vscode
+.env
+*/*/.env
+*/*/.disable
 
-development/services/ecommerce_api/.env
-development/services/ecommerce_web_app/.env
-development/services/tanhua/.env
-
-mock_services/ecommerce_api/node_modules
-mock_services/ecommerce_web_app/node_modules
-mock_services/tanhua/node_modules
+services-enabled/*
+!services-enabled/.gitkeep
